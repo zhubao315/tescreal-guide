@@ -1,0 +1,1944 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="深入探索TESCREAL：硅谷技术精英的隐秘世界观。了解超人类主义、反熵主义、奇点主义、宇宙主义、理性主义、有效利他主义与长期主义七大技术哲学流派及其内在关联。">
+    <meta name="keywords" content="TESCREAL, 超人类主义, 反熵主义, 奇点主义, 宇宙主义, 理性主义, 有效利他主义, 长期主义, 技术哲学, 硅谷">
+    <meta name="author" content="TESCREAL Research">
+    <meta property="og:title" content="TESCREAL 完整指南 | 技术哲学的七大流派">
+    <meta property="og:description" content="深入探索塑造硅谷未来的七大技术哲学流派">
+    <meta property="og:type" content="website">
+    <title>TESCREAL 完整指南 | 技术哲学的七大流派</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* ========== CSS Variables ========== */
+        :root {
+            /* Core Colors */
+            --bg-deep: #030014;
+            --bg-dark: #0a0a1a;
+            --bg-card: rgba(15, 15, 35, 0.6);
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            
+            /* Text Colors */
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            
+            /* TESCREAL Module Colors */
+            --color-t: #F472B6;  /* Transhumanism - Pink */
+            --color-e1: #22D3EE; /* Extropianism - Cyan */
+            --color-s: #FBBF24;  /* Singularitarianism - Amber */
+            --color-c: #34D399;  /* Cosmism - Emerald */
+            --color-r: #A78BFA;  /* Rationalism - Violet */
+            --color-e2: #FB7185; /* Effective Altruism - Rose */
+            --color-a: #60A5FA;  /* Longtermism - Blue */
+            
+            /* Accents */
+            --accent-glow: rgba(139, 92, 246, 0.3);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(139, 92, 246, 0.5);
+            
+            /* Spacing */
+            --section-padding: clamp(4rem, 10vw, 8rem);
+            --container-max: 1400px;
+            
+            /* Typography */
+            --font-heading: 'Space Grotesk', 'Noto Sans SC', sans-serif;
+            --font-body: 'Noto Sans SC', -apple-system, sans-serif;
+            --font-serif: 'Cormorant Garamond', serif;
+        }
+
+        /* ========== Reset & Base ========== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ========== Custom Scrollbar ========== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--color-r), var(--color-e1));
+            border-radius: 4px;
+        }
+
+        /* ========== Background Effects ========== */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-gradient::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(34, 211, 238, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(244, 114, 182, 0.08) 0%, transparent 60%);
+            animation: bgShift 20s ease-in-out infinite;
+        }
+
+        @keyframes bgShift {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(2%, 1%) rotate(1deg); }
+            66% { transform: translate(-1%, 2%) rotate(-1deg); }
+        }
+
+        /* Stars Background */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+
+        /* ========== Navigation ========== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(3, 0, 20, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--color-t), var(--color-e1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-r), var(--color-e1));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        /* ========== Hero Section ========== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.25rem;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-subtle);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--color-e1);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 10vw, 7rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(
+                135deg,
+                var(--text-primary) 0%,
+                var(--color-t) 25%,
+                var(--color-e1) 50%,
+                var(--color-r) 75%,
+                var(--text-primary) 100%
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientFlow 8s ease-in-out infinite;
+        }
+
+        @keyframes gradientFlow {
+            0%, 100% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-serif);
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin-bottom: 3rem;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .hero-pronunciation {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            letter-spacing: 0.2em;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-r), var(--color-t));
+            color: white;
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(139, 92, 246, 0.6);
+        }
+
+        .btn-secondary {
+            background: var(--bg-glass);
+            color: var(--text-primary);
+            border: 1px solid var(--border-subtle);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--color-r);
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        .scroll-arrow {
+            width: 24px;
+            height: 24px;
+            border-right: 2px solid var(--text-muted);
+            border-bottom: 2px solid var(--text-muted);
+            transform: rotate(45deg);
+        }
+
+        /* ========== Container ========== */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ========== Section Styles ========== */
+        section {
+            padding: var(--section-padding) 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-e1);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ========== Introduction Section ========== */
+        .intro {
+            position: relative;
+        }
+
+        .intro-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .intro-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .intro-text p:first-of-type::first-letter {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            font-weight: 700;
+            float: left;
+            line-height: 1;
+            margin-right: 0.5rem;
+            color: var(--color-r);
+        }
+
+        .intro-visual {
+            position: relative;
+        }
+
+        .intro-diagram {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .center-word {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-align: center;
+            z-index: 10;
+        }
+
+        .orbit-ring {
+            position: absolute;
+            border: 1px solid var(--border-subtle);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 20px;
+        }
+
+        .orbit-ring:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            animation: rotate 20s linear infinite;
+        }
+
+        .orbit-ring:nth-child(2) {
+            width: 320px;
+            height: 320px;
+            animation: rotate 30s linear infinite reverse;
+        }
+
+        .orbit-ring:nth-child(3) {
+            width: 440px;
+            height: 440px;
+            animation: rotate 40s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .orbit-item {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .orbit-item:hover {
+            transform: scale(1.1);
+        }
+
+        .orbit-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .orbit-item:nth-child(1) { top: -18px; }
+        .orbit-item:nth-child(2) { bottom: -18px; }
+        .orbit-item:nth-child(3) { left: -18px; }
+        .orbit-item:nth-child(4) { right: -18px; }
+
+        /* ========== Module Cards Grid ========== */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .module-card {
+            position: relative;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 24px;
+            padding: 2.5rem;
+            backdrop-filter: blur(20px);
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--card-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .module-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .module-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--card-accent);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
+                        0 0 40px color-mix(in srgb, var(--card-accent) 20%, transparent);
+        }
+
+        .module-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .module-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, var(--card-accent), transparent);
+            box-shadow: 0 8px 30px color-mix(in srgb, var(--card-accent) 30%, transparent);
+        }
+
+        .module-title-group {
+            flex: 1;
+        }
+
+        .module-letter {
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--card-accent);
+            margin-bottom: 0.25rem;
+        }
+
+        .module-name {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .module-name-en {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .module-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+            font-size: 0.95rem;
+        }
+
+        .module-features {
+            list-style: none;
+        }
+
+        .module-features li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .module-features li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5em;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--card-accent);
+        }
+
+        .module-keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .keyword {
+            padding: 0.35rem 0.85rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+        }
+
+        .module-card:hover .keyword {
+            border-color: color-mix(in srgb, var(--card-accent) 40%, transparent);
+            color: var(--card-accent);
+        }
+
+        /* ========== Connections Section ========== */
+        .connections {
+            position: relative;
+            background: linear-gradient(180deg, transparent, rgba(139, 92, 246, 0.05), transparent);
+        }
+
+        .connections-diagram {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            aspect-ratio: 16/10;
+        }
+
+        .connection-node {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-card);
+            border: 2px solid var(--node-color);
+            box-shadow: 0 0 30px color-mix(in srgb, var(--node-color) 30%, transparent);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .connection-node:hover {
+            transform: scale(1.15);
+            box-shadow: 0 0 50px color-mix(in srgb, var(--node-color) 50%, transparent);
+        }
+
+        .connection-node .letter {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--node-color);
+        }
+
+        .connection-node .name {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        .connection-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, var(--line-start), var(--line-end));
+            transform-origin: left center;
+            opacity: 0.4;
+            transition: opacity 0.3s ease;
+        }
+
+        .connection-line.highlight {
+            opacity: 1;
+            height: 3px;
+            box-shadow: 0 0 15px var(--line-start);
+        }
+
+        /* Connection node positions (percentage-based) */
+        .node-t { top: 15%; left: 50%; transform: translateX(-50%); --node-color: var(--color-t); }
+        .node-e1 { top: 35%; left: 15%; --node-color: var(--color-e1); }
+        .node-s { top: 35%; right: 15%; --node-color: var(--color-s); }
+        .node-c { top: 60%; left: 5%; --node-color: var(--color-c); }
+        .node-r { top: 60%; right: 5%; --node-color: var(--color-r); }
+        .node-e2 { bottom: 15%; left: 25%; --node-color: var(--color-e2); }
+        .node-a { bottom: 15%; right: 25%; --node-color: var(--color-a); }
+
+        /* SVG Lines */
+        .connections-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .connection-path {
+            fill: none;
+            stroke: url(#lineGradient);
+            stroke-width: 1.5;
+            opacity: 0.3;
+            transition: all 0.3s ease;
+        }
+
+        .connection-path.highlight {
+            opacity: 1;
+            stroke-width: 2.5;
+            filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.5));
+        }
+
+        /* ========== Criticism Section ========== */
+        .criticism {
+            background: linear-gradient(180deg, transparent, rgba(251, 113, 133, 0.03), transparent);
+        }
+
+        .criticism-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .criticism-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .criticism-card:hover {
+            border-color: rgba(251, 113, 133, 0.3);
+        }
+
+        .criticism-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(251, 113, 133, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .criticism-title {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .criticism-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* ========== Timeline Section ========== */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--color-t), var(--color-e1), var(--color-s), var(--color-c), var(--color-r), var(--color-e2), var(--color-a));
+        }
+
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 0 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item:nth-child(odd) {
+            margin-left: 50%;
+        }
+
+        .timeline-item:nth-child(even) {
+            text-align: right;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--bg-deep);
+            border: 3px solid var(--dot-color);
+            top: 0;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            left: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            right: -10px;
+        }
+
+        .timeline-year {
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--dot-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* ========== Quote Section ========== */
+        .quote-section {
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .quote-mark {
+            font-family: var(--font-serif);
+            font-size: 8rem;
+            color: var(--color-r);
+            opacity: 0.2;
+            line-height: 0;
+            margin-bottom: 2rem;
+        }
+
+        .quote-text {
+            font-family: var(--font-serif);
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 500;
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            font-style: italic;
+            color: var(--text-primary);
+        }
+
+        .quote-author {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .quote-author strong {
+            color: var(--text-primary);
+        }
+
+        /* ========== Footer ========== */
+        .footer {
+            padding: 4rem 2rem;
+            border-top: 1px solid var(--border-subtle);
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--color-r), var(--color-e1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .footer-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-e1);
+        }
+
+        .footer-copyright {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* ========== Table of Contents ========== */
+        .toc {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .toc-item {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border-subtle);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .toc-item::before {
+            content: attr(data-label);
+            position: absolute;
+            right: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            white-space: nowrap;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .toc-item:hover::before {
+            opacity: 1;
+        }
+
+        .toc-item:hover,
+        .toc-item.active {
+            background: var(--toc-color);
+            border-color: var(--toc-color);
+            box-shadow: 0 0 15px var(--toc-color);
+        }
+
+        .toc-item:nth-child(1) { --toc-color: var(--color-t); }
+        .toc-item:nth-child(2) { --toc-color: var(--color-e1); }
+        .toc-item:nth-child(3) { --toc-color: var(--color-s); }
+        .toc-item:nth-child(4) { --toc-color: var(--color-c); }
+        .toc-item:nth-child(5) { --toc-color: var(--color-r); }
+        .toc-item:nth-child(6) { --toc-color: var(--color-e2); }
+        .toc-item:nth-child(7) { --toc-color: var(--color-a); }
+
+        /* ========== Animations ========== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        .stagger-5 { transition-delay: 0.5s; }
+        .stagger-6 { transition-delay: 0.6s; }
+        .stagger-7 { transition-delay: 0.7s; }
+
+        /* ========== Responsive Design ========== */
+        @media (max-width: 1024px) {
+            .intro-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .intro-visual {
+                order: -1;
+            }
+
+            .connections-diagram {
+                aspect-ratio: 1;
+            }
+
+            .toc {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: var(--bg-deep);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .nav-links a {
+                font-size: 1.5rem;
+            }
+
+            .nav-toggle {
+                display: flex;
+                z-index: 1001;
+            }
+
+            .nav-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .nav-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .nav-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 60px;
+                padding-right: 0;
+                margin-left: 0;
+            }
+
+            .timeline-item:nth-child(odd) {
+                margin-left: 0;
+            }
+
+            .timeline-item:nth-child(even) {
+                text-align: left;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 10px;
+                right: auto;
+            }
+
+            .connection-node {
+                width: 70px;
+                height: 70px;
+            }
+
+            .connection-node .letter {
+                font-size: 1.5rem;
+            }
+
+            .connection-node .name {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 5rem 1rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .module-card {
+                padding: 1.5rem;
+            }
+
+            .criticism-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========== Print Styles ========== */
+        @media print {
+            .nav, .toc, .hero-scroll {
+                display: none;
+            }
+
+            body {
+                background: white;
+                color: black;
+            }
+
+            .bg-gradient, .stars {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="bg-gradient"></div>
+    <div class="stars" id="stars"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">TESCREAL</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#intro">概述</a></li>
+                <li><a href="#modules">七大流派</a></li>
+                <li><a href="#connections">内在联系</a></li>
+                <li><a href="#criticism">批判视角</a></li>
+                <li><a href="#timeline">发展历程</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="菜单">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Table of Contents -->
+    <div class="toc" id="toc">
+        <div class="toc-item" data-label="超人类主义" data-target="module-t"></div>
+        <div class="toc-item" data-label="反熵主义" data-target="module-e1"></div>
+        <div class="toc-item" data-label="奇点主义" data-target="module-s"></div>
+        <div class="toc-item" data-label="宇宙主义" data-target="module-c"></div>
+        <div class="toc-item" data-label="理性主义" data-target="module-r"></div>
+        <div class="toc-item" data-label="有效利他" data-target="module-e2"></div>
+        <div class="toc-item" data-label="长期主义" data-target="module-a"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-badge">2023年由 Timnit Gebru 与 Émile Torres 提出</div>
+        <h1>TESCREAL</h1>
+        <p class="hero-pronunciation">/ˈtɛskriːɔːl/ · 读作 "tes-cree-all"</p>
+        <p class="hero-subtitle">硅谷精英的隐秘认知暗码，塑造人工智能未来的七大技术哲学流派</p>
+        <div class="hero-cta">
+            <a href="#intro" class="btn btn-primary">
+                <span>开始探索</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+            <a href="#modules" class="btn btn-secondary">了解七大流派</a>
+        </div>
+        <div class="hero-scroll">
+            <span>向下滚动</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro" id="intro">
+        <div class="container">
+            <div class="intro-content">
+                <div class="intro-text" data-aos="fade-right">
+                    <h2 class="section-title">什么是 TESCREAL？</h2>
+                    <p>TESCREAL 是一个由计算机科学家 Timnit Gebru 与哲学家 Émile Torres 于 2023 年提出的新术语，旨在描述硅谷及科技行业精英群体中盛行的一系列相互交织的技术乌托邦意识形态。这个概念迅速成为理解当代科技巨头世界观的关键框架。</p>
+                    <p>这七个字母代表了七种相互关联的哲学思潮：超人类主义（Transhumanism）、反熵主义（Extropianism）、奇点主义（Singularitarianism）、宇宙主义（Cosmism）、理性主义（Rationalism）、有效利他主义（Effective Altruism）以及长期主义（Longtermism）。</p>
+                    <p>尽管这些思潮各有其独特的理论根源与发展脉络，但在硅谷精英的实践中，它们被有机地编织在一起，形成了一套统一的世界观体系，深刻影响着人工智能发展方向、生物技术投资决策以及未来社会愿景的构建。</p>
+                </div>
+                <div class="intro-visual" data-aos="fade-left">
+                    <div class="intro-diagram">
+                        <div class="center-word">TESCREAL</div>
+                        <div class="orbit-ring">
+                            <div class="orbit-item">
+                                <div class="orbit-icon" style="background: var(--color-t);">T</div>
+                                <span>超人类</span>
+                            </div>
+                            <div class="orbit-item">
+                                <div class="orbit-icon" style="background: var(--color-e1);">E</div>
+                                <span>反熵</span>
+                            </div>
+                        </div>
+                        <div class="orbit-ring">
+                            <div class="orbit-item">
+                                <div class="orbit-icon" style="background: var(--color-s);">S</div>
+                                <span>奇点</span>
+                            </div>
+                            <div class="orbit-item">
+                                <div class="orbit-icon" style="background: var(--color-c);">C</div>
+                                <span>宇宙</span>
+                            </div>
+                            <div class="orbit-item">
+                                <div class="orbit-icon" style="background: var(--color-r);">R</div>
+                                <span>理性</span>
+                            </div>
+                            <div class="orbit-item">
+                                <div class="orbit-icon" style="background: var(--color-e2);">E</div>
+                                <span>利他</span>
+                            </div>
+                            <div class="orbit-item">
+                                <div class="orbit-icon" style="background: var(--color-a);">A</div>
+                                <span>长期</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modules Section -->
+    <section class="modules" id="modules">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">The Seven Ideologies</span>
+                <h2 class="section-title">七大核心流派</h2>
+                <p class="section-desc">每个流派都代表了对人类未来的一种独特愿景，它们共同构成了TESCREAL的完整思想图谱</p>
+            </div>
+
+            <div class="modules-grid">
+                <!-- Transhumanism -->
+                <article class="module-card fade-in stagger-1" id="module-t" style="--card-accent: var(--color-t);">
+                    <div class="module-header">
+                        <div class="module-icon">🧬</div>
+                        <div class="module-title-group">
+                            <div class="module-letter">T</div>
+                            <h3 class="module-name">超人类主义</h3>
+                            <span class="module-name-en">Transhumanism</span>
+                        </div>
+                    </div>
+                    <div class="module-content">
+                        <p>超人类主义是TESCREAL的核心支柱，主张通过生物技术、人工智能、基因工程等先进技术彻底改造人类有机体，实现对疾病、衰老和认知限制的超越。这一思潮最早可追溯至英国生物学家朱利安·赫胥黎于1952年的开创性论述。</p>
+                        <ul class="module-features">
+                            <li>追求人类寿命延长乃至永生</li>
+                            <li>通过神经接口增强认知能力</li>
+                            <li>基因编辑消除遗传疾病</li>
+                            <li>人机融合创造后人类物种</li>
+                        </ul>
+                        <div class="module-keywords">
+                            <span class="keyword">人体增强</span>
+                            <span class="keyword">寿命延长</span>
+                            <span class="keyword">后人类</span>
+                            <span class="keyword">认知升级</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Extropianism -->
+                <article class="module-card fade-in stagger-2" id="module-e1" style="--card-accent: var(--color-e1);">
+                    <div class="module-header">
+                        <div class="module-icon">⚡</div>
+                        <div class="module-title-group">
+                            <div class="module-letter">E</div>
+                            <h3 class="module-name">反熵主义</h3>
+                            <span class="module-name-en">Extropianism</span>
+                        </div>
+                    </div>
+                    <div class="module-content">
+                        <p>反熵主义由马克斯·莫尔于1988年创立，其核心信念是系统性地对抗热力学第二定律所描述的熵增趋势，通过持续的技术进步维持并增强生命活力。该词由"超"(trans-)与"熵"(entropy)合成，象征着对自然衰退法则的反抗。</p>
+                        <ul class="module-features">
+                            <li>动态理性思维与开放好奇心</li>
+                            <li>自我超越与持续进化</li>
+                            <li>反对熵增，倡导秩序创造</li>
+                            <li>技术作为生命优化的工具</li>
+                        </ul>
+                        <div class="module-keywords">
+                            <span class="keyword">自我转变</span>
+                            <span class="keyword">逆熵</span>
+                            <span class="keyword">技术乌托邦</span>
+                            <span class="keyword">生命扩展</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Singularitarianism -->
+                <article class="module-card fade-in stagger-3" id="module-s" style="--card-accent: var(--color-s);">
+                    <div class="module-header">
+                        <div class="module-icon">🔮</div>
+                        <div class="module-title-group">
+                            <div class="module-letter">S</div>
+                            <h3 class="module-name">奇点主义</h3>
+                            <span class="module-name-en">Singularitarianism</span>
+                        </div>
+                    </div>
+                    <div class="module-content">
+                        <p>奇点主义以未来学家雷·库兹韦尔的"技术奇点"理论为核心，预言人工智能将在2030年前后超越人类智能，引发不可预测的技术爆炸。届时，机器将能够自我改进，导致智能以指数级速度增长，彻底改变人类文明的轨迹。</p>
+                        <ul class="module-features">
+                            <li>技术奇点的不可避免性</li>
+                            <li>人工智能超越人类智能</li>
+                            <li>指数级技术增长曲线</li>
+                            <li>后奇点时代的不确定性</li>
+                        </ul>
+                        <div class="module-keywords">
+                            <span class="keyword">AI超越</span>
+                            <span class="keyword">奇点临近</span>
+                            <span class="keyword">技术爆炸</span>
+                            <span class="keyword">超智能</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Cosmism -->
+                <article class="module-card fade-in stagger-4" id="module-c" style="--card-accent: var(--color-c);">
+                    <div class="module-header">
+                        <div class="module-icon">🌌</div>
+                        <div class="module-title-group">
+                            <div class="module-letter">C</div>
+                            <h3 class="module-name">宇宙主义</h3>
+                            <span class="module-name-en">Cosmism</span>
+                        </div>
+                    </div>
+                    <div class="module-content">
+                        <p>宇宙主义起源于俄罗斯火箭科学家康斯坦丁·齐奥尔科夫斯基的宏大愿景，强调人类应超越地球摇篮，成为真正的星际物种。其核心信念包括宇宙中智慧生命的普遍性、星际殖民的必然性，以及人类文明向宇宙蔓延的神圣使命。</p>
+                        <ul class="module-features">
+                            <li>人类作为宇宙文明的一部分</li>
+                            <li>星际殖民与文明扩展</li>
+                            <li>外星智慧生命的探索</li>
+                            <li>宇宙尺度的文明使命感</li>
+                        </ul>
+                        <div class="module-keywords">
+                            <span class="keyword">星际文明</span>
+                            <span class="keyword">宇宙使命</span>
+                            <span class="keyword">太空探索</span>
+                            <span class="keyword">文明延续</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Rationalism -->
+                <article class="module-card fade-in stagger-5" id="module-r" style="--card-accent: var(--color-r);">
+                    <div class="module-header">
+                        <div class="module-icon">🧠</div>
+                        <div class="module-title-group">
+                            <div class="module-letter">R</div>
+                            <h3 class="module-name">理性主义</h3>
+                            <span class="module-name-en">Rationalism</span>
+                        </div>
+                    </div>
+                    <div class="module-content">
+                        <p>理性主义在TESCREAL语境中强调以逻辑和证据作为认知世界的首要工具，源自启蒙运动的思想传统。在有效利他主义社区中，理性主义通过"序列"(The Sequences)等教材系统化地传授概率论、决策理论与认知偏差修正方法。</p>
+                        <ul class="module-features">
+                            <li>逻辑与推理作为认知基础</li>
+                            <li>概率思维与贝叶斯推理</li>
+                            <li>认知偏差的系统性修正</li>
+                            <li>理性作为道德决策工具</li>
+                        </ul>
+                        <div class="module-keywords">
+                            <span class="keyword">逻辑思维</span>
+                            <span class="keyword">概率论</span>
+                            <span class="keyword">认知科学</span>
+                            <span class="keyword">决策理论</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Effective Altruism -->
+                <article class="module-card fade-in stagger-6" id="module-e2" style="--card-accent: var(--color-e2);">
+                    <div class="module-header">
+                        <div class="module-icon">💚</div>
+                        <div class="module-title-group">
+                            <div class="module-letter">E</div>
+                            <h3 class="module-name">有效利他主义</h3>
+                            <span class="module-name-en">Effective Altruism</span>
+                        </div>
+                    </div>
+                    <div class="module-content">
+                        <p>有效利他主义由哲学家彼得·辛格在《你能做的最大善事》中系统阐述，强调运用证据与理性最大化善的影响力。其核心问题"如何最有效地帮助他人？"驱动着该运动在慈善捐赠、职业选择与cause prioritization等方面的实践探索。</p>
+                        <ul class="module-features">
+                            <li>最大化积极影响的资源配置</li>
+                            <li>基于证据的慈善有效性评估</li>
+                            <li>职业选择的伦理考量</li>
+                            <li>关注被忽视的全球问题</li>
+                        </ul>
+                        <div class="module-keywords">
+                            <span class="keyword">利他主义</span>
+                            <span class="keyword">慈善效能</span>
+                            <span class="keyword">资源配置</span>
+                            <span class="keyword">道德优化</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Longtermism -->
+                <article class="module-card fade-in stagger-7" id="module-a" style="--card-accent: var(--color-a);">
+                    <div class="module-header">
+                        <div class="module-icon">🔭</div>
+                        <div class="module-title-group">
+                            <div class="module-letter">A</div>
+                            <h3 class="module-name">长期主义</h3>
+                            <span class="module-name-en">Longtermism</span>
+                        </div>
+                    </div>
+                    <div class="module-content">
+                        <p>长期主义是有效利他主义的逻辑延伸，主张当代人的道德责任应延伸至遥远的未来。威廉·麦askell在《有限与无限的游戏》中指出，未来可能存在数万亿有感知能力的存在，我们的首要任务是为他们创造更好的世界。</p>
+                        <ul class="module-features">
+                            <li>未来世代的道德重要性</li>
+                            <li>防范存在性风险</li>
+                            <li>长期价值创造的优先性</li>
+                            <li>时间跨度上的道德考量</li>
+                        </ul>
+                        <div class="module-keywords">
+                            <span class="keyword">未来伦理</span>
+                            <span class="keyword">X-risk</span>
+                            <span class="keyword">文明保护</span>
+                            <span class="keyword">代际正义</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <div class="container">
+            <div class="quote-mark">"</div>
+            <blockquote class="quote-text">
+                TESCREAL意识形态的核心是超人类主义——依靠先进技术对人类有机体进行重新工程，改变基因、身体与心智形态，最终产生全新的后人类物种。
+            </blockquote>
+            <p class="quote-author">—— <strong>Émile Torres</strong>，哲学家，TESCREAL概念提出者</p>
+        </div>
+    </section>
+
+    <!-- Connections Section -->
+    <section class="connections" id="connections">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Interconnections</span>
+                <h2 class="section-title">七大流派的内在联系</h2>
+                <p class="section-desc">TESCREAL并非七个孤立思想的简单堆砌，而是一个有机统一的思想体系</p>
+            </div>
+
+            <div class="connections-diagram" data-aos="fade-up">
+                <svg class="connections-svg" viewBox="0 0 900 600" preserveAspectRatio="xMidYMid meet">
+                    <defs>
+                        <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:var(--color-t);stop-opacity:0.5" />
+                            <stop offset="50%" style="stop-color:var(--color-e1);stop-opacity:0.5" />
+                            <stop offset="100%" style="stop-color:var(--color-r);stop-opacity:0.5" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Connection lines will be drawn dynamically -->
+                    <g id="connectionPaths">
+                        <!-- T to E1 -->
+                        <path class="connection-path" d="M 450 80 Q 200 150 100 200" data-from="t" data-to="e1"/>
+                        <!-- T to S -->
+                        <path class="connection-path" d="M 450 80 Q 700 150 800 200" data-from="t" data-to="s"/>
+                        <!-- E1 to C -->
+                        <path class="connection-path" d="M 100 200 Q 50 400 50 350" data-from="e1" data-to="c"/>
+                        <!-- S to R -->
+                        <path class="connection-path" d="M 800 200 Q 850 400 850 350" data-from="s" data-to="r"/>
+                        <!-- C to E2 -->
+                        <path class="connection-path" d="M 50 350 Q 200 500 300 520" data-from="c" data-to="e2"/>
+                        <!-- R to E2 -->
+                        <path class="connection-path" d="M 850 350 Q 700 500 600 520" data-from="r" data-to="e2"/>
+                        <!-- E2 to A -->
+                        <path class="connection-path" d="M 300 520 Q 450 580 600 520" data-from="e2" data-to="a"/>
+                        <!-- T to A -->
+                        <path class="connection-path" d="M 450 80 Q 450 300 450 450" data-from="t" data-to="a" style="opacity:0.6"/>
+                        <!-- Inner connections -->
+                        <path class="connection-path" d="M 100 200 Q 450 250 800 200" data-from="e1" data-to="s" style="opacity:0.3"/>
+                        <path class="connection-path" d="M 50 350 Q 450 450 850 350" data-from="c" data-to="r" style="opacity:0.3"/>
+                    </g>
+                </svg>
+
+                <div class="connection-node node-t">
+                    <span class="letter">T</span>
+                    <span class="name">超人类</span>
+                </div>
+                <div class="connection-node node-e1">
+                    <span class="letter">E</span>
+                    <span class="name">反熵</span>
+                </div>
+                <div class="connection-node node-s">
+                    <span class="letter">S</span>
+                    <span class="name">奇点</span>
+                </div>
+                <div class="connection-node node-c">
+                    <span class="letter">C</span>
+                    <span class="name">宇宙</span>
+                </div>
+                <div class="connection-node node-r">
+                    <span class="letter">R</span>
+                    <span class="name">理性</span>
+                </div>
+                <div class="connection-node node-e2">
+                    <span class="letter">E</span>
+                    <span class="name">利他</span>
+                </div>
+                <div class="connection-node node-a">
+                    <span class="letter">A</span>
+                    <span class="name">长期</span>
+                </div>
+            </div>
+
+            <div style="max-width: 800px; margin: 3rem auto 0; text-align: center;" data-aos="fade-up">
+                <h3 style="font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 1rem;">核心逻辑链条</h3>
+                <p style="color: var(--text-secondary); line-height: 1.8;">
+                    <strong style="color: var(--color-t);">超人类主义</strong>提供终极愿景 →
+                    <strong style="color: var(--color-e1);">反熵主义</strong>赋予行动动力 →
+                    <strong style="color: var(--color-s);">奇点主义</strong>设定技术路径 →
+                    <strong style="color: var(--color-c);">宇宙主义</strong>扩展时间尺度 →
+                    <strong style="color: var(--color-r);">理性主义</strong>提供认知工具 →
+                    <strong style="color: var(--color-e2);">有效利他</strong>明确道德框架 →
+                    <strong style="color: var(--color-a);">长期主义</strong>锚定终极目标
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Criticism Section -->
+    <section class="criticism" id="criticism">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Critical Perspectives</span>
+                <h2 class="section-title">批判性视角</h2>
+                <p class="section-desc">TESCREAL并非没有争议，学者和评论家对其提出了多层面的批评与反思</p>
+            </div>
+
+            <div class="criticism-grid">
+                <div class="criticism-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="criticism-icon">⚠️</div>
+                    <h3 class="criticism-title">精英主义偏见</h3>
+                    <p class="criticism-desc">批评者指出，TESCREAL所描绘的技术乌托邦本质上服务于科技精英的利益，其"普世"愿景忽视了贫富差距、技术获取不平等以及发展中国家人民的真实需求。</p>
+                </div>
+
+                <div class="criticism-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="criticism-icon">🧬</div>
+                    <h3 class="criticism-title">优生学隐患</h3>
+                    <p class="criticism-desc">蒙特利尔伦理研究中心的研究指出，TESCREAL normative框架根植于二十世纪英美优生学传统，存在系统性歧视"不适合"人群的风险，这与民主价值观根本冲突。</p>
+                </div>
+
+                <div class="criticism-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="criticism-icon">🌍</div>
+                    <h3 class="criticism-title">环境与资源问题</h3>
+                    <p class="criticism-desc">宇宙主义与超人类主义对无限增长的追求与地球生态极限形成根本矛盾。大规模星际殖民或人类增强所需资源，与当前气候危机、资源枯竭的现实形成尖锐对立。</p>
+                </div>
+
+                <div class="criticism-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="criticism-icon">👥</div>
+                    <h3 class="criticism-title">民主缺失</h3>
+                    <p class="criticism-desc">这一未来蓝图存在根本性的民主与伦理问题。它显然不是一个"包容性"的未来：如果真要包容，就应该允许人类与后人类并存，而TESCREAL许多版本假定人类会被全面替代。</p>
+                </div>
+
+                <div class="criticism-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="criticism-icon">🔒</div>
+                    <h3 class="criticism-title">风险被低估</h3>
+                    <p class="criticism-desc">批评者认为，TESCREAL倡导者对人工智能和其他新兴技术带来的存在性风险估计不足。过度乐观的技术决定论可能掩盖了真正需要关注的伦理与安全挑战。</p>
+                </div>
+
+                <div class="criticism-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="criticism-icon">⏳</div>
+                    <h3 class="criticism-title">当下的道德忽视</h3>
+                    <p class="criticism-desc">长期主义对遥远未来的过度关注可能导致对当下紧迫问题的道德忽视。如果存在性风险的概率被高估，过度投资于抽象的未来愿景可能意味着对真实的人间苦难视而不见。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section" id="timeline">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Historical Development</span>
+                <h2 class="section-title">思想发展历程</h2>
+                <p class="section-desc">从超人类主义萌芽到TESCREAL概念的正式提出，追溯这一思想体系的演进轨迹</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-right" style="--dot-color: var(--color-c);">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-year">1859</span>
+                    <h3 class="timeline-title">查尔斯·达尔文《物种起源》</h3>
+                    <p class="timeline-desc">进化论为超人类主义思想奠定科学基础，人类开始思考对自身进化的主动干预。</p>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-left" style="--dot-color: var(--color-t);">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-year">1952</span>
+                    <h3 class="timeline-title">朱利安·赫胥黎首次使用"超人类主义"</h3>
+                    <p class="timeline-desc">英国生物学家朱利安·赫胥黎在其著作《超越极点》中首次系统阐述超人类主义概念。</p>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-right" style="--dot-color: var(--color-c);">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-year">1892-1903</span>
+                    <h3 class="timeline-title">俄罗斯宇宙主义兴起</h3>
+                    <p class="timeline-desc">尼古拉·费奥多罗夫提出"共同事业哲学"，齐奥尔科夫斯基发展宇宙主义思想，强调人类向太空扩张的使命。</p>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-left" style="--dot-color: var(--color-e1);">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-year">1988</span>
+                    <h3 class="timeline-title">马克斯·莫尔创立反熵主义</h3>
+                    <p class="timeline-desc">未来学家马克斯·莫尔提出反熵主义原则，系统性对抗熵增趋势，追求无限的生命扩展与自我超越。</p>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-right" style="--dot-color: var(--color-s);">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-year">1993</span>
+                    <h3 class="timeline-title">弗诺·文奇提出"技术奇点"</h3>
+                    <p class="timeline-desc">数学家兼科幻作家弗诺·文奇发表《即将到来的技术奇点》，预言超级智能机器的出现。</p>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-left" style="--dot-color: var(--color-s);">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-year">2005</span>
+                    <h3 class="timeline-title">雷·库兹韦尔《奇点临近》</h3>
+                    <p class="timeline-desc">谷歌工程总监雷·库兹韦尔系统阐述技术奇点理论，预言2030年将实现人类水平AI。</p>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-right" style="--dot-color: var(--color-r);">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-year">2009</span>
+                    <h3 class="timeline-title">有效利他主义运动兴起</h3>
+                    <p class="timeline-desc">哲学家彼得·辛格与威廉·麦askell等人在牛津大学创立有效利他主义中心，系统化推广利他主义实践。</p>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-left" style="--dot-color: var(--color-a);">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-year">2021</span>
+                    <h3 class="timeline-title">长期主义成为EA核心议题</h3>
+                    <p class="timeline-desc">威廉·麦askell《有限与无限的游戏》出版，长期主义在有效利他社区中获得核心地位。</p>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-right" style="--dot-color: var(--color-r);">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-year">2023</span>
+                    <h3 class="timeline-title">TESCREAL概念正式提出</h3>
+                    <p class="timeline-desc">Timnit Gebru与Émile Torres正式提出TESCREAL概念，用以描述硅谷技术精英的意识形态综合体。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Summary Section -->
+    <section class="intro" id="summary" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Summary</span>
+                <h2 class="section-title">总结与反思</h2>
+            </div>
+
+            <div style="max-width: 800px; margin: 0 auto;" data-aos="fade-up">
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 1.05rem;">
+                    TESCREAL代表了一种在硅谷极具影响力但对普通公众相当陌生的世界观。这一思想体系将技术乐观主义、精英责任意识与宏大的文明愿景融为一体，深刻塑造着全球科技发展的方向与优先级。
+                </p>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 1.05rem;">
+                    从超人类主义对人类超越的追求，到反熵主义对衰败的抵抗；从奇点主义对技术爆炸的期盼，到宇宙主义对星际文明的神往；从理性主义对认知工具的精炼，到有效利他主义对善的量化，再到长期主义对未来的道德锚定——这七种思潮共同编织出一幅关于人类未来的宏大叙事。
+                </p>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 1.05rem;">
+                    然而，正如批评者所指出的，这幅蓝图中潜藏着精英主义、优生学隐患与环境不可持续性等深层矛盾。在拥抱技术进步的同时，保持批判性反思，确保技术发展服务于全体人类的福祉，而非仅仅服务于少数精英的愿景，仍是我们这个时代最重要的智识挑战。
+                </p>
+
+                <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 2rem; margin-top: 2rem;">
+                    <h4 style="font-family: var(--font-heading); font-size: 1.1rem; margin-bottom: 1rem; color: var(--color-e1);">TESCREAL速查表</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; font-size: 0.9rem;">
+                        <div><strong style="color: var(--color-t);">T</strong> 超人类主义</div>
+                        <div><strong style="color: var(--color-e1);">E</strong> 反熵主义</div>
+                        <div><strong style="color: var(--color-s);">S</strong> 奇点主义</div>
+                        <div><strong style="color: var(--color-c);">C</strong> 宇宙主义</div>
+                        <div><strong style="color: var(--color-r);">R</strong> 理性主义</div>
+                        <div><strong style="color: var(--color-e2);">E</strong> 有效利他</div>
+                        <div><strong style="color: var(--color-a);">A</strong> 长期主义</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">TESCREAL</div>
+            <p class="footer-desc">深入探索塑造人工智能未来的七大技术哲学流派</p>
+            <div class="footer-links">
+                <a href="https://tescreal.org/" target="_blank" rel="noopener">TESCREAL.org</a>
+                <a href="https://www.dair-institute.org/projects/tescreal/" target="_blank" rel="noopener">DAIR Institute</a>
+                <a href="https://handwiki.org/wiki/Philosophy:TESCREAL" target="_blank" rel="noopener">HandWiki</a>
+                <a href="https://zhuanlan.zhihu.com/p/2013549964521926903" target="_blank" rel="noopener">知乎专栏</a>
+            </div>
+            <p class="footer-copyright">本文档仅供研究与教育目的 · 内容基于公开学术资料整理</p>
+        </div>
+    </footer>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 100
+        });
+
+        // Generate Stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const numberOfStars = 100;
+            
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.width = (Math.random() * 2 + 1) + 'px';
+                star.style.height = star.style.width;
+                starsContainer.appendChild(star);
+            }
+        }
+        createStars();
+
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile nav when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // TOC Navigation
+        const tocItems = document.querySelectorAll('.toc-item');
+        tocItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const targetId = item.dataset.target;
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        });
+
+        // Intersection Observer for TOC highlighting
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -70% 0px',
+            threshold: 0
+        };
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    tocItems.forEach(item => {
+                        item.classList.remove('active');
+                        if (item.dataset.target === id) {
+                            item.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.module-card[id]').forEach(card => {
+            sectionObserver.observe(card);
+        });
+
+        // Connection Path Hover Effects
+        const connectionPaths = document.querySelectorAll('.connection-path');
+        connectionPaths.forEach(path => {
+            path.addEventListener('mouseenter', () => {
+                connectionPaths.forEach(p => p.classList.remove('highlight'));
+                path.classList.add('highlight');
+            });
+            path.addEventListener('mouseleave', () => {
+                path.classList.remove('highlight');
+            });
+        });
+
+        // Fade-in Animation on Scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(el => fadeObserver.observe(el));
+
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Nav Background on Scroll
+        const nav = document.querySelector('.nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(3, 0, 20, 0.95)';
+                nav.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.3)';
+            } else {
+                nav.style.background = 'rgba(3, 0, 20, 0.8)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Print-friendly: Add print styles
+        window.addEventListener('beforeprint', () => {
+            document.body.classList.add('printing');
+        });
+
+        window.addEventListener('afterprint', () => {
+            document.body.classList.remove('printing');
+        });
+    </script>
+</body>
+</html>
