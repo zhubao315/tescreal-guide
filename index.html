@@ -218,6 +218,14 @@
             width: 100%;
         }
 
+        .nav-knowledge-base {
+            background: linear-gradient(135deg, var(--color-r), var(--color-e1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
         .nav-toggle {
             display: none;
             flex-direction: column;
@@ -1226,6 +1234,7 @@
                 <li><a href="#connections">内在联系</a></li>
                 <li><a href="#criticism">批判视角</a></li>
                 <li><a href="#timeline">发展历程</a></li>
+                <li><a href="knowledge-base/" class="nav-knowledge-base">知识库</a></li>
             </ul>
             <button class="nav-toggle" id="navToggle" aria-label="菜单">
                 <span></span>
@@ -1260,6 +1269,9 @@
                 </svg>
             </a>
             <a href="#modules" class="btn btn-secondary">了解七大流派</a>
+            <a href="knowledge-base/" class="btn btn-secondary" style="border-color: var(--color-r);">
+                <span>📚</span> 完整知识库
+            </a>
         </div>
         <div class="hero-scroll">
             <span>向下滚动</span>
@@ -1778,12 +1790,47 @@
         </div>
     </section>
 
+    <!-- Knowledge Base CTA -->
+    <section style="padding: 4rem 0; background: linear-gradient(180deg, transparent, rgba(139, 92, 246, 0.05), transparent);">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;" data-aos="fade-up">
+                <h2 style="font-family: var(--font-heading); font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; margin-bottom: 1rem;">
+                    深入学习：完整知识库
+                </h2>
+                <p style="color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    知识库收录TESCREAL七大流派的深度分析、历史渊源、关键人物档案、核心概念解析与批判性反思。
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
+                    <div style="display: flex; gap: 0.5rem; align-items: center; color: var(--text-secondary);">
+                        <span style="color: var(--color-r);">7</span> 核心流派
+                    </div>
+                    <div style="width: 1px; height: 20px; background: var(--border-subtle);"></div>
+                    <div style="display: flex; gap: 0.5rem; align-items: center; color: var(--text-secondary);">
+                        <span style="color: var(--color-e1);">15+</span> 历史人物
+                    </div>
+                    <div style="width: 1px; height: 20px; background: var(--border-subtle);"></div>
+                    <div style="display: flex; gap: 0.5rem; align-items: center; color: var(--text-secondary);">
+                        <span style="color: var(--color-s);">10+</span> 核心概念
+                    </div>
+                    <div style="width: 1px; height: 20px; background: var(--border-subtle);"></div>
+                    <div style="display: flex; gap: 0.5rem; align-items: center; color: var(--text-secondary);">
+                        <span style="color: var(--color-e2);">5+</span> 批判视角
+                    </div>
+                </div>
+                <a href="knowledge-base/" class="btn btn-primary" style="font-size: 1.1rem; padding: 1.25rem 2.5rem;">
+                    <span>📚</span> 进入知识库
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-logo">TESCREAL</div>
             <p class="footer-desc">深入探索塑造人工智能未来的七大技术哲学流派</p>
             <div class="footer-links">
+                <a href="knowledge-base/">📚 知识库</a>
                 <a href="https://tescreal.org/" target="_blank" rel="noopener">TESCREAL.org</a>
                 <a href="https://www.dair-institute.org/projects/tescreal/" target="_blank" rel="noopener">DAIR Institute</a>
                 <a href="https://handwiki.org/wiki/Philosophy:TESCREAL" target="_blank" rel="noopener">HandWiki</a>
