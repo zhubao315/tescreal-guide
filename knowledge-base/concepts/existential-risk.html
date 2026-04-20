@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>存在性风险 | TESCREAL知识库</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #030014;
+            --bg-card: rgba(15, 15, 35, 0.6);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --color-s: #FBBF24;
+            --color-a: #60A5FA;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Noto Sans SC', -apple-system, sans-serif;
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+        .bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; background: radial-gradient(ellipse at 70% 30%, rgba(251, 191, 36, 0.08) 0%, transparent 50%); }
+        .container { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+        .back { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 2rem; transition: color 0.3s; }
+        .back:hover { color: var(--text-primary); }
+        .header { margin-bottom: 3rem; }
+        .title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; margin-bottom: 0.5rem; }
+        .title-en { font-size: 1.1rem; color: var(--text-muted); }
+        .badge { display: inline-block; padding: 0.35rem 1rem; background: rgba(96, 165, 250, 0.15); border: 1px solid rgba(96, 165, 250, 0.3); border-radius: 100px; font-size: 0.85rem; color: var(--color-a); margin-top: 1rem; }
+        .section { margin-bottom: 2.5rem; }
+        .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-subtle); color: var(--color-s); }
+        .content p { margin-bottom: 1rem; color: var(--text-secondary); }
+        .quote { background: var(--bg-card); border-left: 3px solid var(--color-a); padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; font-style: italic; }
+        .quote cite { display: block; margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted); font-style: normal; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+        .stat-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.25rem; text-align: center; }
+        .stat-number { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; color: var(--color-s); }
+        .stat-label { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem; }
+        .risk-list { list-style: none; }
+        .risk-item { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; }
+        .risk-item h4 { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; }
+        .risk-icon { width: 32px; height: 32px; border-radius: 8px; background: rgba(251, 191, 36, 0.15); display: flex; align-items: center; justify-content: center; }
+        .risk-name { font-weight: 600; }
+        .risk-prob { margin-left: auto; padding: 0.25rem 0.75rem; background: rgba(255, 255, 255, 0.05); border-radius: 100px; font-size: 0.8rem; color: var(--text-muted); }
+        .risk-desc { color: var(--text-secondary); font-size: 0.9rem; padding-left: 2.5rem; }
+        footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 0.85rem; }
+        footer a { color: var(--text-secondary); text-decoration: none; }
+        footer a:hover { color: var(--color-a); }
+    </style>
+</head>
+<body>
+    <div class="bg"></div>
+    <div class="container">
+        <a href="../" class="back">← 返回知识库</a>
+        
+        <header class="header">
+            <h1 class="title">存在性风险</h1>
+            <p class="title-en">Existential Risk (X-Risk)</p>
+            <span class="badge">长期主义核心概念</span>
+        </header>
+
+        <section class="section">
+            <h2 class="section-title">定义</h2>
+            <div class="content">
+                <div class="quote">
+                    存在性风险是一种威胁人类物种或其本质潜力永久毁灭的风险——即人类再也不能恢复的灾难性损失。
+                    <cite>—— 尼克·博斯特罗姆</cite>
+                </div>
+                <p>存在性风险(X-Risk)是指可能导致人类文明永久毁灭、不可逆转衰落或根本性永久性伤害的威胁。在TESCREAL框架中，X-risk是长期主义的核心关切，也是有效利他主义和理性主义的交汇点。</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">风险量化</h2>
+            <div class="content">
+                <p>托比·奥德在《悬崖》(The Precipice, 2020)中提供了系统化的X-risk量化估计：</p>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">~17%</div>
+                        <div class="stat-label">21世纪总X-risk</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">5-10%</div>
+                        <div class="stat-label">AI灾难风险</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">~1%</div>
+                        <div class="stat-label">核战争风险</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">10^10+</div>
+                        <div class="stat-label">降低X-risk1%拯救的生命数</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">主要X-Risk类型</h2>
+            <div class="content">
+                <ul class="risk-list">
+                    <li class="risk-item">
+                        <h4><span class="risk-icon">🤖</span><span class="risk-name">人工智能灾难</span><span class="risk-prob">5-10%</span></h4>
+                        <p class="risk-desc">超级AI系统无法与人类价值观对齐，导致灾难性后果。包括对齐失败、工具收敛、军备竞赛等具体场景。</p>
+                    </li>
+                    <li class="risk-item">
+                        <h4><span class="risk-icon">☣️</span><span class="risk-name">合成生物学</span><span class="risk-prob">~1%</span></h4>
+                        <p class="risk-desc">人造病原体的恶意或意外释放，包括生物武器、实验室事故、生态系统破坏等。</p>
+                    </li>
+                    <li class="risk-item">
+                        <h4><span class="risk-icon">☢️</span><span class="risk-name">核战争</span><span class="risk-prob">~1%</span></h4>
+                        <p class="risk-desc">全面核交换导致人类文明崩溃，包括核冬天、核威慑失败、核恐怖主义等。</p>
+                    </li>
+                    <li class="risk-item">
+                        <h4><span class="risk-icon">🌡️</span><span class="risk-name">气候灾难</span><span class="risk-prob">&lt;1%</span></h4>
+                        <p class="risk-desc">人为气候变化触发不可逆临界点，包括温室气体临界点、行星工程失败等。</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">X-Risk的独特性</h2>
+            <div class="content">
+                <p><strong>规模</strong>：X-risk代表的是所有潜在人类生命的永久损失</p>
+                <p><strong>不可恢复性</strong>：一旦X-risk实现，无法"重来"</p>
+                <p><strong>不对称性</strong>：存在积极X-risk(实现乌托邦)和消极X-risk(永久灾难)</p>
+                <p><strong>路径依赖</strong>：当代决策深刻影响X-risk概率</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">延伸阅读</h2>
+            <div class="content">
+                <p><strong>核心文献</strong>：博斯特罗姆《存在性风险》(2002)、奥德《悬崖》(2020)</p>
+                <p><strong>相关概念</strong>：长期主义、有效利他主义、AI对齐</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <a href="../">← 返回知识库</a> · TESCREAL知识库
+    </footer>
+</body>
+</html>
