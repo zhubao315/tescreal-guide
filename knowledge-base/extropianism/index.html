@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="反熵主义 (Extropianism) - TESCREAL知识库">
+    <title>反熵主义 | Extropianism - TESCREAL知识库</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #030014;
+            --bg-dark: #0a0a1a;
+            --bg-card: rgba(15, 15, 35, 0.6);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --color-t: #F472B6;
+            --color-e1: #22D3EE;
+            --color-s: #FBBF24;
+            --color-c: #34D399;
+            --color-r: #A78BFA;
+            --color-e2: #FB7185;
+            --color-a: #60A5FA;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --font-heading: 'Space Grotesk', 'Noto Sans SC', sans-serif;
+            --font-body: 'Noto Sans SC', -apple-system, sans-serif;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--color-e1), var(--color-c)); border-radius: 4px; }
+        
+        .bg-gradient {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: -1;
+            background: 
+                radial-gradient(ellipse at 30% 20%, rgba(34, 211, 238, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(52, 211, 153, 0.08) 0%, transparent 50%);
+        }
+        
+        .stars {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: -1;
+        }
+        .star {
+            position: absolute;
+            width: 2px; height: 2px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.6; }
+        }
+        
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(3, 0, 20, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            z-index: 100;
+        }
+        .header-back {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .header-back:hover { color: var(--color-e1); }
+        .header-logo {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, var(--color-e1), var(--color-c));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header-nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .header-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .header-nav a:hover { color: var(--text-primary); }
+        
+        .hero {
+            padding: 10rem 2rem 5rem;
+            text-align: center;
+            position: relative;
+        }
+        .hero-letter {
+            font-family: var(--font-heading);
+            font-size: clamp(6rem, 15vw, 12rem);
+            font-weight: 900;
+            color: var(--color-e1);
+            opacity: 0.15;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(34, 211, 238, 0.1);
+            border: 1px solid rgba(34, 211, 238, 0.3);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--color-e1);
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--color-e1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-en {
+            font-size: 1.25rem;
+            color: var(--color-e1);
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+        .hero-desc {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .section {
+            margin-bottom: 4rem;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .section-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.2), rgba(34, 211, 238, 0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .content-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .quote {
+            position: relative;
+            padding: 2rem 2.5rem;
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.08), rgba(52, 211, 153, 0.05));
+            border-left: 4px solid var(--color-e1);
+            border-radius: 0 16px 16px 0;
+            margin: 2rem 0;
+        }
+        .quote p {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        .quote cite {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--color-e1), var(--color-c));
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--color-e1);
+            border-radius: 50%;
+            transform: translateX(-5px);
+        }
+        .timeline-year {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--color-e1);
+            margin-bottom: 0.25rem;
+        }
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        .timeline-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .key-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .key-point {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+        .key-point:hover {
+            border-color: var(--color-e1);
+            transform: translateY(-2px);
+        }
+        .key-point h4 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-e1);
+        }
+        .key-point p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+        .related-card {
+            display: block;
+            padding: 1.25rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+        }
+        .related-card:hover {
+            border-color: var(--color-e1);
+            background: rgba(34, 211, 238, 0.05);
+        }
+        .related-letter {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .related-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        .related-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border-subtle);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        .footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+        .footer a:hover { color: var(--color-e1); }
+        
+        @media (max-width: 768px) {
+            .header { padding: 1rem; }
+            .header-nav { display: none; }
+            .hero { padding: 8rem 1rem 3rem; }
+            .content-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    <div class="stars" id="stars"></div>
+    
+    <header class="header">
+        <a href="../index.html" class="header-back">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            返回首页
+        </a>
+        <a href="../index.html" class="header-logo">TESCREAL</a>
+        <nav class="header-nav">
+            <a href="../index.html">知识库</a>
+            <a href="../../index.html">主页</a>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <span class="hero-letter">E</span>
+        <div class="hero-badge">
+            <span>⚡</span>
+            Extropianism · 反熵
+        </div>
+        <h1>反熵主义</h1>
+        <div class="hero-en">Extropianism</div>
+        <p class="hero-desc">
+            系统性对抗热力学第二定律所描述的熵增趋势，通过技术进步维持并增强生命活力。
+            反熵主义是超人类主义的技术化延伸，强调动态的"逆熵"而非静态的"完美"。
+        </p>
+    </section>
+    
+    <main class="container">
+        <!-- 核心定义 -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">📖</div>
+                <h2 class="section-title">核心定义</h2>
+            </div>
+            <div class="content-card">
+                <div class="quote">
+                    <p>"Extropy是对抗熵增的意志——是对抗无序、停滞和死亡的持续运动。Extropian寻求通过技术和自我转变来扩展生命、知识、智力和自由。"</p>
+                    <cite>—— 马克思·莫尔 (Max More)，《Extropian原则》(1988)</cite>
+                </div>
+                
+                <p style="margin: 2rem 0; color: var(--text-secondary); font-size: 1.05rem;">
+                    <strong style="color: var(--text-primary);">反熵主义</strong>（Extropianism）是一种植根于超人类主义但更强调动态技术进步方向的哲学运动。"Extropy"（逆熵）一词是对"Entropy"（熵）的刻意对应——熵代表无序和衰退，而Extropy代表有序、活力和扩展。
+                </p>
+                
+                <div class="key-points">
+                    <div class="key-point">
+                        <h4>逆熵原则</h4>
+                        <p>系统性地对抗熵增趋势——无论是身体衰老、社会僵化还是知识衰减——通过技术创新维持有序状态</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>无限乐观</h4>
+                        <p>相信技术进步可以解决人类面临的所有问题，包括死亡这种"终极问题"</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>自我转变</h4>
+                        <p>人类不应被当前生物形式所限制，而应主动重新设计自己</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 六大原则 -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">⚙️</div>
+                <h2 class="section-title">六大扩展原则</h2>
+            </div>
+            <div class="content-card">
+                <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                    马克思·莫尔在1988年的《Extropian原则》中提出了反熵主义的六个核心原则，这些原则体现了该运动的核心理念：
+                </p>
+                
+                <div class="key-points">
+                    <div class="key-point">
+                        <h4>1. 无限扩展 (Infinite Extension)</h4>
+                        <p>追求无限制地扩展生命、知识、能力和自由。没有固定的"人类极限"，只有待克服的暂时障碍</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>2. 自我转变 (Self-Transformation)</h4>
+                        <p>积极塑造自己的心智和身体，而非被动接受自然赋予的形式。通过技术实现主动进化</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>3. 乐观动力 (Dynamism)</h4>
+                        <p>拥抱变化和成长，反对静态完美观。动态不完美优于静态僵化</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>4. 智慧自决 (Self-Direction)</h4>
+                        <p>独立思考和自主决策，拒绝外部权威的教条。理性是自我指导的工具</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>5. 理性智慧 (Rationality)</h4>
+                        <p>用科学和逻辑指导行动，基于证据和论证而非情感或权威</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>6. 技术统一 (Technological Unity)</h4>
+                        <p>拥抱技术进步作为人类进化的自然延伸，技术不是外物而是自我的一部分</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 历史 -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">📜</div>
+                <h2 class="section-title">历史发展</h2>
+            </div>
+            <div class="content-card">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">1988</div>
+                        <div class="timeline-title">反熵主义诞生</div>
+                        <div class="timeline-desc">马克思·莫尔创立Extropy Institute，发表《Extropian原则》</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1991</div>
+                        <div class="timeline-title">Extropy Institute正式成立</div>
+                        <div class="timeline-desc">反熵主义运动开始系统化，建立社区和出版物</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1998</div>
+                        <div class="timeline-title">《Extropy》杂志创刊</div>
+                        <div class="timeline-desc">主要的反熵主义刊物，推广超人类主义和技术激进主义</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2000s</div>
+                        <div class="timeline-title">与超人类主义融合</div>
+                        <div class="timeline-desc">随着World Transhumanist Association成立，反熵主义逐渐融入更广泛的超人类主义运动</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2011</div>
+                        <div class="timeline-title">Extropy Institute关闭</div>
+                        <div class="timeline-desc">莫尔宣布关闭Extropy Institute，标志着一个时代的结束</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 核心人物 -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">👤</div>
+                <h2 class="section-title">关键人物</h2>
+            </div>
+            <div class="content-card">
+                <div class="key-points">
+                    <div class="key-point">
+                        <h4>马克思·莫尔 Max More</h4>
+                        <p>反熵主义创始人，哲学家，bioethicist。曾是超人类主义协会(H+)主席，现专注于哲学未来学研究</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>提摩西·威利 Timothy Leary</h4>
+                        <p>虽非正式反熵主义者，但其"brain-death as suicide"和"digitize your consciousness"观点影响深远</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 与其他流派 -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">🔗</div>
+                <h2 class="section-title">TESCREAL中的位置</h2>
+            </div>
+            <div class="content-card">
+                <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                    反熵主义在TESCREAL图谱中扮演"技术引擎"的角色——它将超人类主义的抽象愿景转化为具体的动态原则。
+                </p>
+                
+                <div class="key-points">
+                    <div class="key-point">
+                        <h4>E → T (超人类主义)</h4>
+                        <p>反熵主义是超人类主义的具体化，为其提供技术导向的实践原则</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>E → S (奇点主义)</h4>
+                        <p>无限扩展原则自然导向技术奇点的信念——智能的无限增长</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>E → C (宇宙主义)</h4>
+                        <p>反对熵增的立场与宇宙主义对星际文明的追求相呼应</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 批评 -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">⚖️</div>
+                <h2 class="section-title">主要批评</h2>
+            </div>
+            <div class="content-card">
+                <div class="key-points">
+                    <div class="key-point">
+                        <h4>不切实际的乐观</h4>
+                        <p>批评者认为反熵主义对技术进步的信念过于天真，忽视了技术风险和社会后果</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>个人主义倾向</h4>
+                        <p>过度关注个体自我转变，可能忽视集体行动和社会结构改革</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>与优生学联系</h4>
+                        <p>对"人类改善"的追求与历史优生学运动存在意识形态联系</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 相关流派 -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">🔗</div>
+                <h2 class="section-title">探索其他流派</h2>
+            </div>
+            <div class="related-grid">
+                <a href="../transhumanism/index.html" class="related-card">
+                    <div class="related-letter" style="color: var(--color-t);">T</div>
+                    <div class="related-name">超人类主义</div>
+                    <div class="related-desc">反熵主义的哲学基础</div>
+                </a>
+                <a href="../singularitarianism/index.html" class="related-card">
+                    <div class="related-letter" style="color: var(--color-s);">S</div>
+                    <div class="related-name">奇点主义</div>
+                    <div class="related-desc">技术奇点的信仰</div>
+                </a>
+                <a href="../cosmism/index.html" class="related-card">
+                    <div class="related-letter" style="color: var(--color-c);">C</div>
+                    <div class="related-name">宇宙主义</div>
+                    <div class="related-desc">星际文明愿景</div>
+                </a>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <p>TESCREAL 知识库 · 反熵主义 (Extropianism)</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="../index.html">返回首页</a> · 
+            <a href="../index.html">知识库首页</a>
+        </p>
+    </footer>
+    
+    <script>
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>
