@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>尼古拉斯·博斯特罗姆 | TESCREAL知识库</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #030014;
+            --bg-dark: #0a0a1a;
+            --bg-card: rgba(15, 15, 35, 0.6);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --color-r: #A78BFA;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Noto Sans SC', -apple-system, sans-serif;
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+        .bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; background: radial-gradient(ellipse at 30% 20%, rgba(139, 92, 246, 0.12) 0%, transparent 50%); }
+        .container { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+        .back { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 2rem; transition: color 0.3s; }
+        .back:hover { color: var(--text-primary); }
+        .header { text-align: center; margin-bottom: 3rem; }
+        .name { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; margin-bottom: 0.5rem; }
+        .name-en { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+        .role-badge { display: inline-block; padding: 0.5rem 1.25rem; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 100px; font-size: 0.9rem; color: var(--color-r); }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+        .info-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.5rem; }
+        .info-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+        .info-value { font-size: 1rem; color: var(--text-primary); }
+        .section { margin-bottom: 2.5rem; }
+        .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-subtle); }
+        .content { color: var(--text-secondary); }
+        .content p { margin-bottom: 1rem; }
+        .quote { background: var(--bg-card); border-left: 3px solid var(--color-r); padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; font-style: italic; color: var(--text-primary); }
+        .works { list-style: none; }
+        .works li { padding: 0.75rem 0; border-bottom: 1px solid var(--border-subtle); }
+        .works li:last-child { border-bottom: none; }
+        .work-title { font-weight: 600; }
+        .work-year { color: var(--text-muted); font-size: 0.9rem; margin-left: 0.5rem; }
+        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+        .tag { padding: 0.25rem 0.75rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-subtle); border-radius: 100px; font-size: 0.8rem; color: var(--text-muted); }
+        footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 0.85rem; }
+        footer a { color: var(--text-secondary); text-decoration: none; }
+        footer a:hover { color: var(--color-r); }
+    </style>
+</head>
+<body>
+    <div class="bg"></div>
+    <div class="container">
+        <a href="../" class="back">← 返回知识库</a>
+        
+        <header class="header">
+            <h1 class="name">尼古拉斯·博斯特罗姆</h1>
+            <p class="name-en">Nick Bostrom</p>
+            <span class="role-badge">FHI创始主任 · 超级智能研究先驱</span>
+        </header>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-label">出生年份</div>
+                <div class="info-value">1973年</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">国籍</div>
+                <div class="info-value">瑞典 / 英国</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">学术职位</div>
+                <div class="info-value">牛津大学哲学教授</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">研究机构</div>
+                <div class="info-value">人类未来研究所 (FHI)</div>
+            </div>
+        </div>
+
+        <section class="section">
+            <h2 class="section-title">生平简介</h2>
+            <div class="content">
+                <p>博斯特罗姆出生于瑞典，在斯德哥尔摩大学接受本科教育，后在伦敦大学学院获得博士学位，导师为著名哲学家玛莎·努斯鲍姆(Martha Nussbaum)。</p>
+                <p>2005年，他与伙伴共同创立牛津大学人类未来研究所(Future of Humanity Institute, FHI)，这是全球首个专注于存在性风险研究的学术中心。在此之前，牛津大学哲学系几乎没有正式的存在性风险研究方向。</p>
+                <p>博斯特罗姆的研究横跨多个学科：哲学(尤其伦理学和形而上学)、计算机科学(AI安全)、概率论和决策理论。他被广泛认为是存在性风险研究领域的学术奠基人之一。</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">核心思想与贡献</h2>
+            <div class="content">
+                <div class="quote">
+                    "如果机器比人类更聪明，我们如何确保机器想做我们想让它做的事？"
+                </div>
+                <p><strong>1. 存在性风险(X-Risk)研究</strong></p>
+                <p>博斯特罗姆是X-risk学术研究的奠基人之一。2002年，他在《未来》杂志发表《Existential Risk》论文，首次系统性地从哲学和实证角度分析威胁人类文明生存的风险。</p>
+                <p>2013年，他编辑出版《Global Catastrophic Risks》论文集，汇集了物理学家、生物学家、经济学家和哲学家对文明级风险的研究。</p>
+                
+                <p><strong>2. 超级智能研究</strong></p>
+                <p>2014年出版《超级智能：路径、危险与策略》(Superintelligence: Paths, Dangers, Strategies)，成为AI安全领域的里程碑著作。该书系统分析了超级智能可能带来的风险，并探讨了应对策略。</p>
+                <p>博斯特罗姆提出了著名的"智能爆炸"论证：如果机器达到人类智能水平，理论上它能够自我改进，导致智能的指数级增长，最终超越人类理解能力。</p>
+                
+                <p><strong>3. 超人类主义研究</strong></p>
+                <p>2005年发表《超人类主义思想史》(A History of Transhumanist Thought)，系统梳理了从19世纪末朱利安·赫胥黎到当代超人类主义运动的思想脉络。</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">在TESCREAL中的地位</h2>
+            <div class="content">
+                <p>博斯特罗姆在TESCREAL图谱中扮演<strong>"学术核心"</strong>角色。他同时连接多个流派：</p>
+                <p><strong>→ 超人类主义</strong>：他是超人类主义宣言的联署人之一，研究人类增强技术的伦理问题</p>
+                <p><strong>→ 奇点主义</strong>：他的超级智能研究与奇点主义高度重叠</p>
+                <p><strong>→ 有效利他主义</strong>：他是EA社区的重要支持者和思想提供者</p>
+                <p><strong>→ 长期主义</strong>：他的X-risk研究是长期主义的核心学术基础</p>
+                <p><strong>→ 理性主义</strong>：他的决策理论和概率论研究为理性主义社区提供理论支撑</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">代表著作</h2>
+            <ul class="works">
+                <li><span class="work-title">《超级智能：路径、危险与策略》</span><span class="work-year">(Superintelligence, 2014)</span><br><small style="color: var(--text-muted);">系统分析AI超级智能的可能路径与风险</small></li>
+                <li><span class="work-title">《全球灾难性风险》</span><span class="work-year">(Global Catastrophic Risks, 2013, 合编)</span><br><small style="color: var(--text-muted);">汇集多学科对文明级风险的研究</small></li>
+                <li><span class="work-title">《存在性风险》</span><span class="work-year">(Existential Risk, 2002)</span><br><small style="color: var(--text-muted);">X-risk研究的开创性论文</small></li>
+                <li><span class="work-title">《超人类主义思想史》</span><span class="work-year">(A History of Transhumanist Thought, 2005)</span><br><small style="color: var(--text-muted);">系统梳理超人类主义思想史</small></li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">相关链接</h2>
+            <div class="tags">
+                <a href="https://www.fhi.ox.ac.uk/" target="_blank" class="tag">Future of Humanity Institute</a>
+                <a href="https://www.nickbostrom.com/" target="_blank" class="tag">个人网站</a>
+                <a href="https://scholar.google.com/citations?user=3a3RhY8AAAAJ" target="_blank" class="tag">Google Scholar</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <a href="../">← 返回知识库</a> · TESCREAL知识库 · 基于公开学术资料整理
+    </footer>
+</body>
+</html>
