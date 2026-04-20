@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="理性主义 (Rationalism) - TESCREAL知识库">
+    <title>理性主义 | Rationalism - TESCREAL知识库</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #030014;
+            --bg-dark: #0a0a1a;
+            --bg-card: rgba(15, 15, 35, 0.6);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --color-t: #F472B6;
+            --color-e1: #22D3EE;
+            --color-s: #FBBF24;
+            --color-c: #34D399;
+            --color-r: #A78BFA;
+            --color-e2: #FB7185;
+            --color-a: #60A5FA;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --font-heading: 'Space Grotesk', 'Noto Sans SC', sans-serif;
+            --font-body: 'Noto Sans SC', -apple-system, sans-serif;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--color-r), var(--color-t)); border-radius: 4px; }
+        
+        .bg-gradient {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: -1;
+            background: 
+                radial-gradient(ellipse at 30% 20%, rgba(167, 139, 250, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(244, 114, 182, 0.08) 0%, transparent 50%);
+        }
+        
+        .stars {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: -1;
+        }
+        .star {
+            position: absolute;
+            width: 2px; height: 2px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.6; }
+        }
+        
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(3, 0, 20, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            z-index: 100;
+        }
+        .header-back {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .header-back:hover { color: var(--color-r); }
+        .header-logo {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, var(--color-r), var(--color-t));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header-nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .header-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .header-nav a:hover { color: var(--text-primary); }
+        
+        .hero {
+            padding: 10rem 2rem 5rem;
+            text-align: center;
+            position: relative;
+        }
+        .hero-letter {
+            font-family: var(--font-heading);
+            font-size: clamp(6rem, 15vw, 12rem);
+            font-weight: 900;
+            color: var(--color-r);
+            opacity: 0.15;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(167, 139, 250, 0.1);
+            border: 1px solid rgba(167, 139, 250, 0.3);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--color-r);
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--color-r));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-en {
+            font-size: 1.25rem;
+            color: var(--color-r);
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+        .hero-desc {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .section {
+            margin-bottom: 4rem;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .section-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(167, 139, 250, 0.2), rgba(167, 139, 250, 0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .content-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .quote {
+            position: relative;
+            padding: 2rem 2.5rem;
+            background: linear-gradient(135deg, rgba(167, 139, 250, 0.08), rgba(244, 114, 182, 0.05));
+            border-left: 4px solid var(--color-r);
+            border-radius: 0 16px 16px 0;
+            margin: 2rem 0;
+        }
+        .quote p {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        .quote cite {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--color-r), var(--color-t));
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--color-r);
+            border-radius: 50%;
+            transform: translateX(-5px);
+        }
+        .timeline-year {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--color-r);
+            margin-bottom: 0.25rem;
+        }
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        .timeline-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .key-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .key-point {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+        .key-point:hover {
+            border-color: var(--color-r);
+            transform: translateY(-2px);
+        }
+        .key-point h4 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-r);
+        }
+        .key-point p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+        .related-card {
+            display: block;
+            padding: 1.25rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+        }
+        .related-card:hover {
+            border-color: var(--color-r);
+            background: rgba(167, 139, 250, 0.05);
+        }
+        .related-letter {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .related-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        .related-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border-subtle);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        .footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+        .footer a:hover { color: var(--color-r); }
+        
+        @media (max-width: 768px) {
+            .header { padding: 1rem; }
+            .header-nav { display: none; }
+            .hero { padding: 8rem 1rem 3rem; }
+            .content-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    <div class="stars" id="stars"></div>
+    
+    <header class="header">
+        <a href="../index.html" class="header-back">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            返回首页
+        </a>
+        <a href="../index.html" class="header-logo">TESCREAL</a>
+        <nav class="header-nav">
+            <a href="../index.html">知识库</a>
+            <a href="../../index.html">主页</a>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <span class="hero-letter">R</span>
+        <div class="hero-badge">
+            <span>🧠</span>
+            Rationalism · 理性工具
+        </div>
+        <h1>理性主义</h1>
+        <div class="hero-en">Rationalism</div>
+        <p class="hero-desc">
+            强调以逻辑、概率论和认知科学作为理解和改造世界的主要工具，系统性修正认知偏差。
+            作为TESCREAL的"方法论基础"，理性主义为其他流派提供了决策和评估的认知框架。
+        </p>
+    </section>
+    
+    <main class="container">
+        <!-- 核心定义 -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">📖</div>
+                <h2 class="section-title">核心定义</h2>
+            </div>
+            <div class="content-card">
+                <div class="quote">
+                    <p>"理性不是一种能力，而是一种技能。就像任何技能一样，它需要通过刻意练习来发展。理性主义是关于如何系统性地改进你的思维过程，使其更接近真实。"</p>
+                    <cite>—— 伊莱恩·叶戈罗夫 (Eliezer Yudkowsky)</cite>
+                </div>
+                
+                <p style="margin: 2rem 0; color: var(--text-secondary); font-size: 1.05rem;">
+                    <strong style="color: var(--text-primary);">理性主义</strong>在TESCREAL语境下特指LessWrong社区发展的实用理性传统，强调通过概率论、逻辑和认知科学来改进决策。与传统哲学理性主义不同，TESCREAL理性主义是高度实践导向的——关注如何实际做出更好的决定。
+                </p>
+                
+                <div class="key-points">
+                    <div class="key-point">
+                        <h4>贝叶斯推理</h4>
+                        <p>将概率论作为更新信念的核心工具：根据新证据系统性地调整你对世界的看法</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>认知偏差修正</h4>
+                        <p>识别并系统性地纠正人类思维中的系统性错误：确认偏差、可得性启发、损失厌恶等</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>概率校准</h4>
+                        <p>让你的主观概率估计与客观频率对齐——一个"90%确定"的事件应该有90%的实际发生率</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 核心概念 -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">💡</div>
+                <h2 class="section-title">核心概念</h2>
+            </div>
+            <div class="content-card">
+                <div class="key-points">
+                    <div class="key-point">
+                        <h4>认识论（Epistemology）</h4>
+                        <p>关于知识的理论。LessWrong理性主义关注"如何知道我们知道什么"，区分证据与噪音</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>决策理论（Decision Theory）</h4>
+                        <p>在不确定性下做决策的框架。新古典决策理论 vs 因果决策理论 vs 功能性决策理论</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>启发式与偏差（Heuristics & Biases）</h4>
+                        <p>丹尼尔·卡尼曼和阿莫斯·特沃斯基的系统性认知偏差研究，是LessWrong理性主义的重要基础</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>连贯外推意志（CEV）</h4>
+                        <p>叶戈罗夫提出的AI对齐理论：AI应该追求人类如果更理性会选择的未来</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- LessWrong -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">📚</div>
+                <h2 class="section-title">LessWrong 社区</h2>
+            </div>
+            <div class="content-card">
+                <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                    LessWrong是TESCREAL理性主义的核心社区和知识平台，由叶戈罗夫于2009年创立：
+                </p>
+                
+                <div class="key-points">
+                    <div class="key-point">
+                        <h4>The Sequences（序列教材）</h4>
+                        <p>叶戈罗夫系统化理性主义的文章集合，涵盖概率论、认知偏差、逻辑、AI理论等主题</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>理性大厅（Rationality Hall）</h4>
+                        <p>LessWrong的线下聚会和理性主义社区活动，推广实践理性技巧</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>AI对齐研究</h4>
+                        <p>LessWrong社区是AI对齐研究的重要来源，产生了大量关于AI安全的理论工作</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 历史 -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">📜</div>
+                <h2 class="section-title">历史发展</h2>
+            </div>
+            <div class="content-card">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2006</div>
+                        <div class="timeline-title">Overcoming Bias 博客</div>
+                        <div class="timeline-desc">罗宾·汉森和叶戈罗夫创立博客，推广认知偏差修正</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2007</div>
+                        <div class="timeline-title">The Sequences 开始</div>
+                        <div class="timeline-desc">叶戈罗夫开始系统撰写理性主义教程</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2009</div>
+                        <div class="timeline-title">LessWrong 创立</div>
+                        <div class="timeline-desc">专用理性主义讨论平台上线，成为TESCREAL社区核心</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2010s</div>
+                        <div class="timeline-title">EA整合</div>
+                        <div class="timeline-desc">理性主义工具被EA社区广泛采用</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 与TESCREAL -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">🔗</div>
+                <h2 class="section-title">TESCREAL中的位置</h2>
+            </div>
+            <div class="content-card">
+                <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                    理性主义是TESCREAL的"方法论黏合剂"——它不提供愿景，而是为其他流派提供实现愿景的认知工具：
+                </p>
+                
+                <div class="key-points">
+                    <div class="key-point">
+                        <h4>R → S (奇点主义)</h4>
+                        <p>评估AI发展时间线、判断AI风险概率需要概率论工具</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>R → E (有效利他主义)</h4>
+                        <p>最大化善的影响力需要正确评估不同干预的成本效益</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>R → A (长期主义)</h4>
+                        <p>在极端不确定性下评估未来风险，理性主义框架尤为重要</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 相关流派 -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">🔗</div>
+                <h2 class="section-title">探索其他流派</h2>
+            </div>
+            <div class="related-grid">
+                <a href="../singularitarianism/index.html" class="related-card">
+                    <div class="related-letter" style="color: var(--color-s);">S</div>
+                    <div class="related-name">奇点主义</div>
+                    <div class="related-desc">AI对齐研究的核心关切</div>
+                </a>
+                <a href="../effective-altruism/index.html" class="related-card">
+                    <div class="related-letter" style="color: var(--color-e2);">E</div>
+                    <div class="related-name">有效利他主义</div>
+                    <div class="related-desc">EA决策的理性工具</div>
+                </a>
+                <a href="../longtermism/index.html" class="related-card">
+                    <div class="related-letter" style="color: var(--color-a);">A</div>
+                    <div class="related-name">长期主义</div>
+                    <div class="related-desc">未来风险评估框架</div>
+                </a>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <p>TESCREAL 知识库 · 理性主义 (Rationalism)</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="../index.html">返回首页</a> · 
+            <a href="../index.html">知识库首页</a>
+        </p>
+    </footer>
+    
+    <script>
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>
