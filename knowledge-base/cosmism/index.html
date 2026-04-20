@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="宇宙主义 (Cosmism) - TESCREAL知识库">
+    <title>宇宙主义 | Cosmism - TESCREAL知识库</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #030014;
+            --bg-dark: #0a0a1a;
+            --bg-card: rgba(15, 15, 35, 0.6);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --color-t: #F472B6;
+            --color-e1: #22D3EE;
+            --color-s: #FBBF24;
+            --color-c: #34D399;
+            --color-r: #A78BFA;
+            --color-e2: #FB7185;
+            --color-a: #60A5FA;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --font-heading: 'Space Grotesk', 'Noto Sans SC', sans-serif;
+            --font-body: 'Noto Sans SC', -apple-system, sans-serif;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--color-c), var(--color-e1)); border-radius: 4px; }
+        
+        .bg-gradient {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: -1;
+            background: 
+                radial-gradient(ellipse at 30% 20%, rgba(52, 211, 153, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(34, 211, 238, 0.08) 0%, transparent 50%);
+        }
+        
+        .stars {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: -1;
+        }
+        .star {
+            position: absolute;
+            width: 2px; height: 2px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.6; }
+        }
+        
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(3, 0, 20, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            z-index: 100;
+        }
+        .header-back {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .header-back:hover { color: var(--color-c); }
+        .header-logo {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, var(--color-c), var(--color-e1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header-nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .header-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .header-nav a:hover { color: var(--text-primary); }
+        
+        .hero {
+            padding: 10rem 2rem 5rem;
+            text-align: center;
+            position: relative;
+        }
+        .hero-letter {
+            font-family: var(--font-heading);
+            font-size: clamp(6rem, 15vw, 12rem);
+            font-weight: 900;
+            color: var(--color-c);
+            opacity: 0.15;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(52, 211, 153, 0.1);
+            border: 1px solid rgba(52, 211, 153, 0.3);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--color-c);
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--color-c));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-en {
+            font-size: 1.25rem;
+            color: var(--color-c);
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+        .hero-desc {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .section {
+            margin-bottom: 4rem;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .section-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(52, 211, 153, 0.2), rgba(52, 211, 153, 0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .content-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .quote {
+            position: relative;
+            padding: 2rem 2.5rem;
+            background: linear-gradient(135deg, rgba(52, 211, 153, 0.08), rgba(34, 211, 238, 0.05));
+            border-left: 4px solid var(--color-c);
+            border-radius: 0 16px 16px 0;
+            margin: 2rem 0;
+        }
+        .quote p {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        .quote cite {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--color-c), var(--color-e1));
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--color-c);
+            border-radius: 50%;
+            transform: translateX(-5px);
+        }
+        .timeline-year {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--color-c);
+            margin-bottom: 0.25rem;
+        }
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        .timeline-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .key-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .key-point {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+        .key-point:hover {
+            border-color: var(--color-c);
+            transform: translateY(-2px);
+        }
+        .key-point h4 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-c);
+        }
+        .key-point p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+        .related-card {
+            display: block;
+            padding: 1.25rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+        }
+        .related-card:hover {
+            border-color: var(--color-c);
+            background: rgba(52, 211, 153, 0.05);
+        }
+        .related-letter {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .related-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        .related-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border-subtle);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        .footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+        .footer a:hover { color: var(--color-c); }
+        
+        @media (max-width: 768px) {
+            .header { padding: 1rem; }
+            .header-nav { display: none; }
+            .hero { padding: 8rem 1rem 3rem; }
+            .content-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    <div class="stars" id="stars"></div>
+    
+    <header class="header">
+        <a href="../index.html" class="header-back">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            返回首页
+        </a>
+        <a href="../index.html" class="header-logo">TESCREAL</a>
+        <nav class="header-nav">
+            <a href="../index.html">知识库</a>
+            <a href="../../index.html">主页</a>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <span class="hero-letter">C</span>
+        <div class="hero-badge">
+            <span>🚀</span>
+            Cosmism · 星际使命
+        </div>
+        <h1>宇宙主义</h1>
+        <div class="hero-en">Cosmism</div>
+        <p class="hero-desc">
+            强调人类应超越地球摇篮成为真正的星际物种，肩负向宇宙传播生命和意识的道德使命。
+            作为TESCREAL中最具俄罗斯哲学传统的流派，宇宙主义为技术乌托邦提供了宇宙尺度的愿景。
+        </p>
+    </section>
+    
+    <main class="container">
+        <!-- 核心定义 -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">📖</div>
+                <h2 class="section-title">核心定义</h2>
+            </div>
+            <div class="content-card">
+                <div class="quote">
+                    <p>"地球是宇宙的摇篮，但人不能永远生活在摇篮里。首先，他将小心翼翼地穿过大气层，然后征服整个太阳系。"</p>
+                    <cite>—— 康斯坦丁·齐奥尔科夫斯基 (Konstantin Tsiolkovsky)，《太空火箭列车》(1911)</cite>
+                </div>
+                
+                <p style="margin: 2rem 0; color: var(--text-secondary); font-size: 1.05rem;">
+                    <strong style="color: var(--text-primary);">宇宙主义</strong>（Cosmism）是一种植根于俄罗斯哲学传统的宇宙愿景，主张人类有道德责任成为真正的星际物种。宇宙主义者认为，地球只是人类文明的起点，生命和意识应该向整个宇宙传播，对抗宇宙的热寂命运。
+                </p>
+                
+                <div class="key-points">
+                    <div class="key-point">
+                        <h4>星际文明</h4>
+                        <p>人类文明不应局限于地球，而应扩张到整个银河系乃至宇宙，成为真正的宇宙物种</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>太空使命</h4>
+                        <p>太空探索不仅是科学或经济行为，更是人类的神圣使命——将生命和意识播撒到宇宙</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>永恒生命</h4>
+                        <p>通过技术实现永生不仅是个体追求，更是抵抗宇宙熵增命运的方式</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 俄罗斯宇宙主义 -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">🏛️</div>
+                <h2 class="section-title">俄罗斯宇宙主义传统</h2>
+            </div>
+            <div class="content-card">
+                <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                    宇宙主义起源于19-20世纪的俄罗斯哲学界，融合了东正教神秘主义、俄罗斯诗歌和科学幻想：
+                </p>
+                
+                <div class="key-points">
+                    <div class="key-point">
+                        <h4>尼古拉·费奥多罗夫 Nikolai Fedorov</h4>
+                        <p>宇宙主义哲学奠基人，《共同事业的哲学》主张"共同复活"——通过科学手段复活所有逝者，最终实现星际扩张</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>康斯坦丁·齐奥尔科夫斯基 Konstantin Tsiolkovsky</h4>
+                        <p>火箭科学家、宇宙主义哲学家，提出火箭方程，被誉为"宇航之父"，相信人类将进化为宇宙公民</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>亚历山大·奇热夫斯基 Alexander Chizhevsky</h4>
+                        <p>提出太阳活动影响人类生活的"宇宙主义"理论，推广"宇宙节律"概念</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 历史 -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">📜</div>
+                <h2 class="section-title">历史发展</h2>
+            </div>
+            <div class="content-card">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">1870s-1890s</div>
+                        <div class="timeline-title">宇宙主义诞生</div>
+                        <div class="timeline-desc">费奥多罗夫发展出以"共同复活"和太空扩张为核心的宇宙主义哲学</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1883-1903</div>
+                        <div class="timeline-title">火箭科学奠基</div>
+                        <div class="timeline-desc">齐奥尔科夫斯基提出火箭方程和太空电梯概念，为宇宙主义提供科学基础</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1920s-1950s</div>
+                        <div class="timeline-title">苏联宇宙主义</div>
+                        <div class="timeline-desc">尽管斯大林时期受压制，宇宙主义思想仍在苏联科学家中流传</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1957-1961</div>
+                        <div class="timeline-title">太空时代</div>
+                        <div class="timeline-desc">苏联发射首颗人造卫星、加加林首次进入太空，宇宙主义愿景部分实现</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">21世纪</div>
+                        <div class="timeline-title">新宇宙主义</div>
+                        <div class="timeline-desc">随着SpaceX等私营航天公司崛起，宇宙主义愿景重新流行</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 与TESCREAL的关系 -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">🔗</div>
+                <h2 class="section-title">TESCREAL中的位置</h2>
+            </div>
+            <div class="content-card">
+                <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                    宇宙主义在TESCREAL图谱中扮演"愿景拓展"的角色，为技术乌托邦提供宇宙尺度的意义框架：
+                </p>
+                
+                <div class="key-points">
+                    <div class="key-point">
+                        <h4>C → T (超人类主义)</h4>
+                        <p>宇宙主义扩展了超人类主义——不仅超越当前人类，还要超越地球物种的限制</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>C → E (反熵主义)</h4>
+                        <p>对抗地球局限是逆熵的终极体现——将有序生命扩展到整个宇宙</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>C → S (奇点主义)</h4>
+                        <p>超级智能可能是在宇宙中扩张的必要工具</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 批评 -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">⚖️</div>
+                <h2 class="section-title">主要批评</h2>
+            </div>
+            <div class="content-card">
+                <div class="key-points">
+                    <div class="key-point">
+                        <h4>人类中心主义</h4>
+                        <p>批评者认为宇宙主义延续了人类中心主义偏见——宇宙不需要"被拯救"或"被传播"</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>乌托邦主义</h4>
+                        <p>星际文明愿景过于遥远，忽视了当前地球上的紧迫问题</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>殖民主义隐喻</h4>
+                        <p>"向宇宙传播生命"可能复制地球上的殖民主义逻辑</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 相关流派 -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">🔗</div>
+                <h2 class="section-title">探索其他流派</h2>
+            </div>
+            <div class="related-grid">
+                <a href="../transhumanism/index.html" class="related-card">
+                    <div class="related-letter" style="color: var(--color-t);">T</div>
+                    <div class="related-name">超人类主义</div>
+                    <div class="related-desc">人类增强的基础哲学</div>
+                </a>
+                <a href="../extropianism/index.html" class="related-card">
+                    <div class="related-letter" style="color: var(--color-e1);">E</div>
+                    <div class="related-name">反熵主义</div>
+                    <div class="related-desc">对抗熵增的哲学</div>
+                </a>
+                <a href="../singularitarianism/index.html" class="related-card">
+                    <div class="related-letter" style="color: var(--color-s);">S</div>
+                    <div class="related-name">奇点主义</div>
+                    <div class="related-desc">技术奇点信仰</div>
+                </a>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <p>TESCREAL 知识库 · 宇宙主义 (Cosmism)</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="../index.html">返回首页</a> · 
+            <a href="../index.html">知识库首页</a>
+        </p>
+    </footer>
+    
+    <script>
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>
