@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="长期主义 (Longtermism) - TESCREAL知识库">
+    <title>长期主义 | Longtermism - TESCREAL知识库</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #030014;
+            --bg-dark: #0a0a1a;
+            --bg-card: rgba(15, 15, 35, 0.6);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --color-t: #F472B6;
+            --color-e1: #22D3EE;
+            --color-s: #FBBF24;
+            --color-c: #34D399;
+            --color-r: #A78BFA;
+            --color-e2: #FB7185;
+            --color-a: #60A5FA;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --font-heading: 'Space Grotesk', 'Noto Sans SC', sans-serif;
+            --font-body: 'Noto Sans SC', -apple-system, sans-serif;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--color-a), var(--color-r)); border-radius: 4px; }
+        
+        .bg-gradient {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: -1;
+            background: 
+                radial-gradient(ellipse at 30% 20%, rgba(96, 165, 250, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(167, 139, 250, 0.08) 0%, transparent 50%);
+        }
+        
+        .stars {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: -1;
+        }
+        .star {
+            position: absolute;
+            width: 2px; height: 2px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.6; }
+        }
+        
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(3, 0, 20, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            z-index: 100;
+        }
+        .header-back {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .header-back:hover { color: var(--color-a); }
+        .header-logo {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, var(--color-a), var(--color-r));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header-nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .header-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .header-nav a:hover { color: var(--text-primary); }
+        
+        .hero {
+            padding: 10rem 2rem 5rem;
+            text-align: center;
+            position: relative;
+        }
+        .hero-letter {
+            font-family: var(--font-heading);
+            font-size: clamp(6rem, 15vw, 12rem);
+            font-weight: 900;
+            color: var(--color-a);
+            opacity: 0.15;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(96, 165, 250, 0.1);
+            border: 1px solid rgba(96, 165, 250, 0.3);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--color-a);
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--color-a));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-en {
+            font-size: 1.25rem;
+            color: var(--color-a);
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+        .hero-desc {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .section {
+            margin-bottom: 4rem;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .section-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(96, 165, 250, 0.2), rgba(96, 165, 250, 0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .content-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .quote {
+            position: relative;
+            padding: 2rem 2.5rem;
+            background: linear-gradient(135deg, rgba(96, 165, 250, 0.08), rgba(167, 139, 250, 0.05));
+            border-left: 4px solid var(--color-a);
+            border-radius: 0 16px 16px 0;
+            margin: 2rem 0;
+        }
+        .quote p {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        .quote cite {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--color-a), var(--color-r));
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--color-a);
+            border-radius: 50%;
+            transform: translateX(-5px);
+        }
+        .timeline-year {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--color-a);
+            margin-bottom: 0.25rem;
+        }
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        .timeline-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .key-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .key-point {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+        .key-point:hover {
+            border-color: var(--color-a);
+            transform: translateY(-2px);
+        }
+        .key-point h4 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-a);
+        }
+        .key-point p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+        .related-card {
+            display: block;
+            padding: 1.25rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+        }
+        .related-card:hover {
+            border-color: var(--color-a);
+            background: rgba(96, 165, 250, 0.05);
+        }
+        .related-letter {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .related-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        .related-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border-subtle);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        .footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+        .footer a:hover { color: var(--color-a); }
+        
+        @media (max-width: 768px) {
+            .header { padding: 1rem; }
+            .header-nav { display: none; }
+            .hero { padding: 8rem 1rem 3rem; }
+            .content-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    <div class="stars" id="stars"></div>
+    
+    <header class="header">
+        <a href="../index.html" class="header-back">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            返回首页
+        </a>
+        <a href="../index.html" class="header-logo">TESCREAL</a>
+        <nav class="header-nav">
+            <a href="../index.html">知识库</a>
+            <a href="../../index.html">主页</a>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <span class="hero-letter">A</span>
+        <div class="hero-badge">
+            <span>⏳</span>
+            Longtermism · 未来伦理
+        </div>
+        <h1>长期主义</h1>
+        <div class="hero-en">Longtermism</div>
+        <p class="hero-desc">
+            主张当代人的道德责任应延伸至遥远的未来，防范存在性风险是当今世界的首要伦理议题。
+            作为TESCREAL的"终极关怀"，长期主义将技术乌托邦的意义延伸至宇宙时间尺度。
+        </p>
+    </section>
+    
+    <main class="container">
+        <!-- 核心定义 -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">📖</div>
+                <h2 class="section-title">核心定义</h2>
+            </div>
+            <div class="content-card">
+                <div class="quote">
+                    <p>"长期主义的核心主张是：遥远的未来在道德上非常重要。当我们考虑我们行动的长期后果时，我们应该认真对待可能存在于未来数十年、数百年乃至数千年的潜在生命的福祉。"</p>
+                    <cite>—— 威廉·麦askell (William MacAskill)，《The Good Ancestor》</cite>
+                </div>
+                
+                <p style="margin: 2rem 0; color: var(--text-secondary); font-size: 1.05rem;">
+                    <strong style="color: var(--text-primary);">长期主义</strong>（Longtermism）是一种伦理立场，认为遥远的未来世代的福祉与当前世代的道德关切同等重要——甚至更为重要。长期主义者认为，当代人的主要道德责任之一是确保人类文明的长期生存与繁荣。
+                </p>
+                
+                <div class="key-points">
+                    <div class="key-point">
+                        <h4>代际正义</h4>
+                        <p>当代人的决策深刻影响未来世代，我们应该像关心当代人一样关心未来人</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>存在性风险</h4>
+                        <p>X-risk是长期主义核心关切——人类文明可能因各种灾难而永久终结</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>路径依赖</h4>
+                        <p>当代决策塑造未来发展的可能路径，早期选择具有巨大杠杆效应</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 核心论点 -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">📊</div>
+                <h2 class="section-title">长期主义的核心论点</h2>
+            </div>
+            <div class="content-card">
+                <div class="key-points">
+                    <div class="key-point">
+                        <h4>数量论点</h4>
+                        <p>如果人类文明持续，未来可能存在数十亿甚至万亿人口。当代人的道德选择影响这些潜在生命的福祉</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>覆盖论点</h4>
+                        <p>未来世代可能占据人类历史上99%以上的生命年份。当代人的道德考量应该反映这一规模</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>杠杆论点</h4>
+                        <p>降低X-risk1%的价值等于拯救约10^10至10^12条生命。当代努力具有巨大的道德杠杆</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>路径依赖论点</h4>
+                        <p>人类正处于关键历史节点，我们的选择将决定人类文明是走向乌托邦还是灾难</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 历史 -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">📜</div>
+                <h2 class="section-title">历史发展</h2>
+            </div>
+            <div class="content-card">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2002</div>
+                        <div class="timeline-title">X-risk学术研究</div>
+                        <div class="timeline-desc">博斯特罗姆发表《Existential Risk》论文，系统化X-risk研究</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2008</div>
+                        <div class="timeline-title">《Global Catastrophic Risks》</div>
+                        <div class="timeline-desc">博斯特罗姆编辑出版，系统分析人类面临的存在性风险</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2015</div>
+                        <div class="timeline-title">长期主义术语</div>
+                        <div class="timeline-desc">博斯特罗姆和麦askell等开始使用"长期主义"一词</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2020</div>
+                        <div class="timeline-title">《长期主义》出版</div>
+                        <div class="timeline-desc">麦askell出版《The Good Ancestor》，系统阐述长期主义</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2020</div>
+                        <div class="timeline-title">《悬崖》出版</div>
+                        <div class="timeline-desc">奥德出版《The Precipice》，量化21世纪X-risk概率</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 核心人物 -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">👤</div>
+                <h2 class="section-title">关键人物</h2>
+            </div>
+            <div class="content-card">
+                <div class="key-points">
+                    <div class="key-point">
+                        <h4>尼克·博斯特罗姆 Nick Bostrom</h4>
+                        <p>FHI创始主任，X-risk研究奠基人，长期主义核心思想家</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>威廉·麦askell William MacAskill</h4>
+                        <p>EA共同创始人，《The Good Ancestor》作者，系统阐述长期主义伦理</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>托比·奥德 Toby Ord</h4>
+                        <p>《The Precipice》作者，量化21世纪X-risk概率，Giving What We Can创始人</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>托拜厄斯·拜耳 Tobias Bayer</h4>
+                        <p>长期主义哲学家，深化长期主义的伦理基础</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- X-risk -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">☢️</div>
+                <h2 class="section-title">存在性风险 (X-Risk)</h2>
+            </div>
+            <div class="content-card">
+                <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                    长期主义的核心关切是人类面临的存在性风险——可能导致人类文明永久终结的威胁：
+                </p>
+                
+                <div class="key-points">
+                    <div class="key-point">
+                        <h4>🤖 AI灾难</h4>
+                        <p>失控的超级AI可能导致人类灭绝或永久奴役。长期主义者认为这是最大的X-risk</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>🦠 工程流行病</h4>
+                        <p>合成生物学可能创造高致死性病原体</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>☢️ 核战争</h4>
+                        <p>全面核交换可能导致人类文明崩溃</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>🌡️ 气候灾难</h4>
+                        <p>人为气候变化可能触发不可逆临界点</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 与TESCREAL -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">🔗</div>
+                <h2 class="section-title">TESCREAL中的位置</h2>
+            </div>
+            <div class="content-card">
+                <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                    长期主义是TESCREAL的"终极关怀"——它为其他流派的技术乌托邦提供了宇宙时间尺度的意义框架：
+                </p>
+                
+                <div class="key-points">
+                    <div class="key-point">
+                        <h4>A → T (超人类主义)</h4>
+                        <p>超人类主义愿景只有通过长期视角才有意义——为未来世代创造更好的存在条件</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>A → S (奇点主义)</h4>
+                        <p>AI奇点既是最大的X-risk，也是人类最大机遇——长期主义是评估AI风险的框架</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>A → E (有效利他主义)</h4>
+                        <p>EA框架自然延伸至长期——如果未来人类生命有价值，X-risk是EA最高优先级</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 批评 -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">⚖️</div>
+                <h2 class="section-title">主要批评</h2>
+            </div>
+            <div class="content-card">
+                <div class="key-points">
+                    <div class="key-point">
+                        <h4>贴现率争议</h4>
+                        <p>传统经济学认为未来生命的价值应该被"贴现"。长期主义者反对这一观点，但争议持续</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>忽视当下</h4>
+                        <p>批评者认为过度关注未来X-risk可能导致忽视当前已经存在的苦难</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>不确定性</h4>
+                        <p>对未来进行道德计算存在根本不确定性，我们真的能可靠地预测遥远的未来吗？</p>
+                    </div>
+                    <div class="key-point">
+                        <h4>政治风险</h4>
+                        <p>"防范X-risk"可能被用于为威权政策或限制自由辩护</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 相关流派 -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon">🔗</div>
+                <h2 class="section-title">探索其他流派</h2>
+            </div>
+            <div class="related-grid">
+                <a href="../effective-altruism/index.html" class="related-card">
+                    <div class="related-letter" style="color: var(--color-e2);">E</div>
+                    <div class="related-name">有效利他主义</div>
+                    <div class="related-desc">长期主义的EA框架基础</div>
+                </a>
+                <a href="../rationalism/index.html" class="related-card">
+                    <div class="related-letter" style="color: var(--color-r);">R</div>
+                    <div class="related-name">理性主义</div>
+                    <div class="related-desc">X-risk评估的理性工具</div>
+                </a>
+                <a href="../singularitarianism/index.html" class="related-card">
+                    <div class="related-letter" style="color: var(--color-s);">S</div>
+                    <div class="related-name">奇点主义</div>
+                    <div class="related-desc">AI X-risk的核心关切</div>
+                </a>
+                <a href="../cosmism/index.html" class="related-card">
+                    <div class="related-letter" style="color: var(--color-c);">C</div>
+                    <div class="related-name">宇宙主义</div>
+                    <div class="related-desc">星际文明是X-risk保险</div>
+                </a>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <p>TESCREAL 知识库 · 长期主义 (Longtermism)</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="../index.html">返回首页</a> · 
+            <a href="../index.html">知识库首页</a>
+        </p>
+    </footer>
+    
+    <script>
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>
